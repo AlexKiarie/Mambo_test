@@ -35,11 +35,17 @@ class GeneralController extends Controller
             $user->save();
         }
     }
+    //
     public function two_factor(){
         return view('two_factor_auth');
     }
     public function verify_token($id, $token){
         $user = User::find($id);
+        if($user->auth_token != $token){
+            return redirect('/logged_in');
+        }else{
+            return redirect('/');
+        }
     }
     public function logged_in(){
         return view('logged_in');

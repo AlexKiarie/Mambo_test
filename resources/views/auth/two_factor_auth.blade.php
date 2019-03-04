@@ -38,3 +38,19 @@
     </div>
 </div>
 @endsection
+@section('js')
+    <script>
+        $("body").on("click","#btnVerify", function(){
+            var email = $("#token").val();
+        $.ajax({
+            type:"GET",
+            url:"/verify_token",
+            data:{token:token},
+            cache:false,
+            success:function(result){
+                window.location = "/logged_in;
+            },
+        });
+        });
+    </script>
+@endsection

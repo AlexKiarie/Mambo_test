@@ -67,20 +67,3 @@
     </div>
 </div>
 @endsection
-@section('js')
-    <script>
-        $("body").on("click","#btnLogin", function(){
-            var email = $("#email").val();
-            var pass = $("#password").val();
-        $.ajax({
-            type:"GET",
-            url:"/two_factor",
-            data:{email:email,password:password},
-            cache:false,
-            success:function(result){
-                window.location = "/two_factor;
-            },
-        });
-        });
-    </script>
-@endsection
